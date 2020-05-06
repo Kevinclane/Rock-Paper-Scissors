@@ -59,6 +59,7 @@ function compare(user) {
     }
   }
   displayResults(result)
+  resultColor(result)
   counter(result)
 }
 
@@ -78,4 +79,21 @@ function counter(result) {
     loss++
   }
   elem.innerHTML = `Wins: ${win}  Draws: ${draw}  Losses: ${loss}`
+}
+
+function resultColor(result) {
+  let elem = document.getElementById("results")
+  if (result == "Win") {
+    elem.classList.add("win")
+    elem.classList.remove("draw")
+    elem.classList.remove("loss")
+  } else if (result == "Draw") {
+    elem.classList.add("draw")
+    elem.classList.remove("win")
+    elem.classList.remove("loss")
+  } else if (result == "Loss") {
+    elem.classList.add("loss")
+    elem.classList.remove("win")
+    elem.classList.remove("draw")
+  }
 }
